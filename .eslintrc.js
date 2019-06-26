@@ -9,7 +9,12 @@ module.exports = {
 		parser: "babel-eslint"
 	},
 	parser: "vue-eslint-parser",
-    extends: 'eslint:recommended',
+	extends: [
+		"eslint:recommended",
+		// https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+		// consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+		"plugin:vue/recommended"
+	],
     plugins: [
 		'vue'
     ],
@@ -23,7 +28,7 @@ module.exports = {
 		"no-unreachable": "warn",//在return,throw,continue,break之后出现代码告警
 		"comma-dangle": ["error", "never"],//禁用对象或数组的拖尾逗号,[1,2,]
 		"indent": ["error",4],//强制代码缩进，默认4个空格
-		"vue/script-indent":["error",4],//强制.vue代码缩进，默认4个空格
+		"vue/script-indent":["error",4,{"baseIndent":1}],//强制.vue代码缩进，默认4个空格
 		"semi": [2, 'always'],//强制使用分号结尾
 		"no-var": "error",//禁止使用var申明变量，强制使用let,const
 		"no-shadow": 2,//外部作用域中的变量不能与它所包含的作用域中的变量或参数同名

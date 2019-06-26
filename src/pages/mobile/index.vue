@@ -20,6 +20,7 @@ export default {
 </script>
 <style>
 .container {
+	width: 100%;
 	margin: 0 auto;
 	min-height: 100vh;
 	line-height: 480px;

@@ -1,0 +1,138 @@
+@import './global-vars';
+html,
+body {
+    margin: 0;
+    font-family: "PingFang-SC-Regular", "Microsoft YaHei", 'Times New Roman', Times, serif;
+}
+body {
+    font-family: PingFang-SC-Regular, Hiragino Sans GB, Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif; 
+    line-height: 1.5;
+}
+body,button,input,select,textarea {
+    font: 14px/1.5 Microsoft YaHei, tahoma, arial, Hiragino Sans GB, \\5b8b\4f53, sans-serif;
+}
+body,div,h1,h2,h3,h4,h5,h6,hr,p,
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,
+blockquote,dl,dt,dd,ul,ol,li,pre,fieldset,legend,button,
+input,textarea,form,th,td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+textarea {
+    resize: none;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    font-size: 100%;
+    line-height: 100%;
+}
+
+address,cite,dfn,em,var {
+    font-style: normal
+}
+
+code,kbd,pre,samp {
+    font-family: courier new, courier, monospace
+}
+
+small {
+    font-size: 12px
+}
+
+ol,ul {
+    list-style: none
+}
+
+sup {
+    vertical-align: text-top
+}
+
+sub {
+    vertical-align: text-bottom
+}
+
+legend {
+    color: #000
+}
+
+fieldset,img {
+    border: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+button,a {
+	text-decoration: none;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+a:active,
+a:focus,
+a:hover {
+    text-decoration: none
+}
+
+:focus {
+    outline: none
+}
+
+::-webkit-input-placeholder {
+    color: #b4b4b4;
+    font-size: 14px;
+    text-align: left;
+    letter-spacing: normal; //font-weight: 100%
+}
+
+input:focus,
+input:hover,
+input:active {
+    outline: 0;
+    margin: 0;
+    font-weight: normal
+}
+
+label {
+    cursor: pointer
+}
+
+li {
+    list-style-type: none
+}
+
+* {
+    box-sizing: border-box;
+}
+
+// 修正标签的阴影问题
+a,input {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+//清除浮动
+@mixin clearfix {
+    &:after {
+        visibility: hidden;
+        display: block;
+        content: "";
+        clear: both;
+        height: 0;
+    }
+}
+.clearfix {
+    @include clearfix();
+}
+//文字省略溢出
+@mixin ellipsis-single {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+}
+
+.textelp {
+    @include ellipsis-single();
+}

@@ -1,6 +1,9 @@
-// const webpack = require("webpack");
+const webpack = require("webpack");
 module.exports = {
-    mode: 'universal',
+	//默认universal，{universal:同构（服务端渲染）,spa:非服务端渲染}
+	mode: 'universal',
+	//将项目目录定位到src下面
+	srcDir: 'src/',
     /*
 	** Headers of the page
 	*/
@@ -19,16 +22,12 @@ module.exports = {
 	** Customize the progress-bar color
 	*/
     loading: { color: '#fff' },
-    /**
-	 * 个性化配置 Nuxt.js 应用的路由
-	 */
-    router:{
-        base:'/'
-    },
     /*
 	** 所有页面都会引用的CSS
 	*/
-    css: [],
+    css: [
+		{src: "~assets/style/common.scss",lang: "scss"}
+	],
     /*
 	** 所有页面都会引用的js
 	*/
@@ -78,17 +77,27 @@ module.exports = {
 		*/
         extend(config, ctx) {
             // Run ESLint on save
-            if (ctx.isDev && ctx.isClient) {
-                config.module.rules.push({
-                    enforce: "pre",
-                    test: /\.(vue|js)$/,
-                    loader: "eslint-loader",
-                    exclude: /(node_modules)/,
-                    options: {
-                        formatter: require('eslint-friendly-formatter')
-                    }
-                });
-            }
+            // if (ctx.isDev && ctx.isClient) {
+			// 	//eslint loader
+			// 	const eslintLoader = {
+            //         enforce: "pre",
+            //         test: /\.(vue|js)$/,
+            //         loader: "eslint-loader",
+            //         exclude: /(node_modules)/,
+            //         options: {
+            //             formatter: require('eslint-friendly-formatter')
+            //         }
+			// 	};
+			// 	//自定义eslint配置
+			// 	const defineEslintRules = new webpack.LoaderOptionsPlugin({
+			// 		test: /\.(js|jsx)$/,
+			// 		options:{
+			// 			eslint: './.eslintrc.js'
+			// 		}
+			// 	});
+            //     config.module.rules.push(eslintLoader);
+			// 	config.plugins.push(defineEslintRules);
+            // }
         }
     },
     env:{}
