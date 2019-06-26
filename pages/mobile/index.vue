@@ -2,7 +2,7 @@
 	<div>
 		<Header />
 		<div class="container">
-			this is home
+			这是手机界面首页
 		</div>
 	</div>
 </template>

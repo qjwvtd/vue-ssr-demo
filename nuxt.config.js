@@ -1,63 +1,54 @@
-
+// const webpack = require("webpack");
 module.exports = {
-	mode: 'universal',
-	/*
+    mode: 'universal',
+    /*
 	** Headers of the page
 	*/
-	head: {
-		title: process.env.npm_package_name || '',
-		meta: [
-			{ charset: 'utf-8' },
-			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-			{ hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
-		],
-		link: [
-			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-		]
-	},
-	/*
+    head: {
+        title: process.env.npm_package_name || '',
+        meta: [
+            { charset: 'utf-8' },
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+            { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+        ],
+        link: [
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        ]
+    },
+    /*
 	** Customize the progress-bar color
 	*/
-	loading: { color: '#fff' },
-	/**
+    loading: { color: '#fff' },
+    /**
 	 * 个性化配置 Nuxt.js 应用的路由
 	 */
-	router:{
-		base:'/'
-	},
-	/*
-	** Global CSS
+    router:{
+        base:'/'
+    },
+    /*
+	** 所有页面都会引用的CSS
 	*/
-	css: [],
-	/*
-	** Global js
+    css: [],
+    /*
+	** 所有页面都会引用的js
 	*/
-	script: [
-		{type:'text/javascript',src: ""}
-	],
-	/*
+    script: [],
+    /*
 	** Plugins to load before mounting the App
 	*/
-	plugins: [],
-	/*
+    plugins: [],
+    /*
 	** Nuxt.js modules
 	*/
-	modules: [],
-	/*
-	** Build configuration
+    modules: [],
+    /*
+	** Build 配置
 	*/
-	build: {
-		/*
-		** You can extend webpack config here
-		*/
-		extend(config, ctx) {},
-		/**
-		 * 
-		 */
-		plugins:[],
-		analyze: false,//是否开启浏览器构建性能分析
+    build: {
+        plugins:[],
+        analyze: false,//是否开启浏览器构建性能分析
         optimization:{
-            minimize: true,
+            minimize: true
         },
         extractCSS:true,
         html:{
@@ -82,7 +73,23 @@ module.exports = {
             }
         },
         cssSourceMap:true,
-
-	},
-	env:{}
-}
+        /*
+		** 扩展webpack配置
+		*/
+        extend(config, ctx) {
+            // Run ESLint on save
+            if (ctx.isDev && ctx.isClient) {
+                config.module.rules.push({
+                    enforce: "pre",
+                    test: /\.(vue|js)$/,
+                    loader: "eslint-loader",
+                    exclude: /(node_modules)/,
+                    options: {
+                        formatter: require('eslint-friendly-formatter')
+                    }
+                });
+            }
+        }
+    },
+    env:{}
+};

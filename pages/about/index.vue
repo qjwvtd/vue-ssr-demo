@@ -10,16 +10,17 @@ import Header from '~/components/common/header';
 import AboutContent from './aboutContent';
 
 export default {
-	name:'About',
-	components:{
-		Header,AboutContent
-	}
-}
+    name:'About',
+    components:{
+        Header,
+        AboutContent
+    }
+};
 </script>
 <style lang="scss" scoped>
 .about h1{
 	text-align:center;
-	line-height:320px;
+	line-height:200px;
 	background:#ccc;
 }
 </style>

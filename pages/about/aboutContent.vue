@@ -1,12 +1,17 @@
 <template>
 	<div class="aboutContent">
-		hellow world,this is aboutContent Page
+		{{text}}
 	</div>
 </template>
 <script>
 export default {
-	name:'AboutContent'
-}
+    name:'AboutContent',
+    data(){
+        return {
+            text:'hellow world,this is aboutContent Page'
+        };
+    }
+};
 </script>
 <style lang="scss" scoped>
 .aboutContent{
