@@ -2,7 +2,14 @@
 	<div>
 		<Header />
 		<div class="container">
-			这是手机界面首页
+			<p>这是界面首页</p>
+			
+			<el-row>
+				<el-col :span="12">
+					<h3>内部集成element-ui</h3>
+					<i class="el-icon-menu"></i>
+				</el-col>
+			</el-row>
 		</div>
 	</div>
 </template>
@@ -23,11 +30,10 @@ export default {
 	width: 100%;
 	margin: 0 auto;
 	min-height: 100vh;
-	line-height: 480px;
 	background: #dfdfdf;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	text-align: center;
+}
+.container p{
+	line-height: 300px;
 }
 </style>

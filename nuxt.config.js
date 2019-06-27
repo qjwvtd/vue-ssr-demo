@@ -5,7 +5,7 @@ module.exports = {
 	//将项目目录定位到src下面
 	srcDir: 'src/',
     /*
-	** Headers of the page
+	** 每个页面都会默认使用这个head,也可以在页面组件中重写
 	*/
     head: {
         title: process.env.npm_package_name || '',
@@ -26,16 +26,18 @@ module.exports = {
 	** 所有页面都会引用的CSS
 	*/
     css: [
-		{src: "~assets/style/common.scss",lang: "scss"}
+		{src: "~/assets/style/common.scss",lang: "scss"}
 	],
     /*
 	** 所有页面都会引用的js
 	*/
     script: [],
     /*
-	** Plugins to load before mounting the App
+	** 集成elementui
 	*/
-    plugins: [],
+    plugins: [
+		{src:'~/plugins/use-element.js',ssr:true}
+	],
     /*
 	** Nuxt.js modules
 	*/

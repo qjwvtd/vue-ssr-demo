@@ -1,5 +1,7 @@
 # vue-ssr-exzample
 
+# 内置:前端element-ui，后端:express
+
 > My super-excellent Nuxt.js project
 
 ## Build Setup
